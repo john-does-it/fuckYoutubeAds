@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name         YouTube Ad Skipper
+// @name         FuckAds - A Youtube pub skipper
 // @namespace    http://tampermonkey.net/
 // @version      2.0
 // @description  Automatically skips YouTube ads and mutes/unmutes video.
 // @author       John Doe
-// @match        *://www.youtube.com/watch*
+// @match        *://www.youtube.com/*
 // @grant        none
 // ==/UserScript==
 
