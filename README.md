@@ -29,7 +29,6 @@ To use this script, the TamperMonkey browser extension is required. TamperMonkey
 ## Notes
 - **License:** MIT
 - **Author:** John Doe
-- **Updates:** Stay updated with the latest version of the script. You can check for updates at [this link](https://update.greasyfork.org/scripts/484915/FuckAds%20-%20A%20Youtube%20pub%20skipper.meta.js).
 - **Feedback and Issues:** If you encounter problems or have suggestions, providing feedback on the script's page is appreciated.
 - **Responsible Use:** Modifying website behavior, especially for ad skipping, may violate the website's terms of service. Use this script responsibly and at your own risk.
 
