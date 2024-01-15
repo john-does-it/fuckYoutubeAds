@@ -6,6 +6,9 @@
 // @author       John Doe
 // @match        *://www.youtube.com/*
 // @grant        none
+// @license MIT
+// @downloadURL https://update.greasyfork.org/scripts/484915/FuckAds%20-%20A%20Youtube%20pub%20skipper.user.js
+// @updateURL https://update.greasyfork.org/scripts/484915/FuckAds%20-%20A%20Youtube%20pub%20skipper.meta.js
 // ==/UserScript==
 
 (function () {
