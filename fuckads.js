@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         FuckAds - A Youtube pub skipper
 // @namespace    http://tampermonkey.net/
-// @version      2.0
+// @version      3.0
 // @description  Automatically skips YouTube ads and mutes/unmutes video.
 // @author       John Doe
 // @match        *://www.youtube.com/*
@@ -13,7 +13,7 @@
 
 (function () {
   console.log('fuckads')
-  let adSkipped = false
+  let adSkipped
   const messageDiv = document.createElement('div')
 
   if (location.href.includes('/watch')) {
