@@ -6,7 +6,7 @@
 ![FuckAds demo gif](/fuck-ads.gif)
 
 ## Additional Information
-- **Version:** 2.0
+- **Version:** See header in fuckads.js
 - **Testing:** The script has undergone basic testing and works effectively in most scenarios. However, given the dynamic nature of YouTube's platform, there may be occasions where the script doesn't function as expected. Reloading the page can often resolve such issues.
 - **Compatibility:** The script is subject to YouTube's updates, which may affect its functionality. Regular updates and maintenance are necessary for ongoing effectiveness.
 
