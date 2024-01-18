@@ -1,7 +1,7 @@
-# FuckAds - A YouTube Pub Skipper
+# FuckAds - A YouTube Pub Skipper for FireFox and Opera
 
 ## Overview
-"FuckAds" is a user script designed to improve your YouTube experience by automatically muting, hiding, and skipping ads. It works seamlessly on YouTube watch pages, taking control of ads to deliver an uninterrupted viewing experience.
+"FuckAds" is a user script designed to improve your YouTube experience by automatically muting, hiding, and skipping ads. It works seamlessly on YouTube watch pages, taking control of ads to deliver an uninterrupted viewing experience. It works quite well on Opera and FireFox but not on Google Chrome.
 
 ![FuckAds demo gif](/fuck-ads.gif)
 
