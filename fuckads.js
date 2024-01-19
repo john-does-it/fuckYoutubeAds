@@ -22,13 +22,6 @@
     skipAd()
   }
 
-  function createMessage () {
-    messageDiv.id = 'ad-skip-message'
-    messageDiv.style.cssText = 'position: fixed; bottom: 50%; left: 50%; background: red; color: white; padding: 5px; z-index: 999;'
-    messageDiv.textContent = 'Ad muted and hidden by FuckAds, will be skipped ASAP if possible, if not you just need to wait. Keep your mind ad-free.'
-    document.body.appendChild(messageDiv)
-  }
-
   function skipAd () {
     if (adSkipped === false) {
       const player = document.getElementById('movie_player')
@@ -49,7 +42,6 @@
   function startObserving () {
     const player = document.getElementById('movie_player')
     if (player && player.classList.contains('ad-showing')) {
-      createMessage()
       player.mute()
       player.style.zIndex = '-999'
       skipAd()
