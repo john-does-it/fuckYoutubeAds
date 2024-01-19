@@ -1,37 +1,28 @@
 // ==UserScript==
 // @name         FuckAds - A Youtube pub skipper
 // @namespace    http://tampermonkey.net/
-// @version      3.3.1
+// @version      4.3
 // @description  Automatically skips YouTube ads and mutes/unmutes video for Firefox (quickly tested) and Opera (extensively tested).
 // @author       John Doe
 // @match        *://www.youtube.com/*
 // @grant        none
-// @license MIT
-// @downloadURL https://update.greasyfork.org/scripts/484915/FuckAds%20-%20A%20Youtube%20pub%20skipper.user.js
-// @updateURL https://update.greasyfork.org/scripts/484915/FuckAds%20-%20A%20Youtube%20pub%20skipper.meta.js
+// @license      MIT
+// @downloadURL  https://update.greasyfork.org/scripts/484915/FuckAds%20-%20A%20Youtube%20pub%20skipper.user.js
+// @updateURL    https://update.greasyfork.org/scripts/484915/FuckAds%20-%20A%20Youtube%20pub%20skipper.meta.js
 // ==/UserScript==
 
 (function () {
-  console.log('fuckads')
-  let adSkipped
-  const messageDiv = document.createElement('div')
+  console.log('FuckAds script initialized')
+  let adSkipped = false
 
-  if (location.href.includes('/watch')) {
-    console.log('URL includes /watch')
-    adSkipped = false
-    skipAd()
-  }
-
+  // Function to skip the ad if present
   function skipAd () {
-    if (adSkipped === false) {
-      const player = document.getElementById('movie_player')
-      const skipButton = document.querySelector('.ytp-ad-skip-button-text')
-      if (player && skipButton) {
-        skipButton.click()
-        console.log('Ad skipped')
-      }
+    const player = document.getElementById('movie_player')
+    const skipButton = document.querySelector('.ytp-ad-skip-button-text')
+    if (player && skipButton && !adSkipped) {
+      skipButton.click()
+      console.log('Ad skipped')
       adSkipped = true
-      messageDiv.style.zIndex = '-999'
       player.unMute()
       player.style.zIndex = '999'
       player.seekTo(0)
@@ -39,31 +30,34 @@
     }
   }
 
+  // Function to observe ad showing and skip it
   function startObserving () {
     const player = document.getElementById('movie_player')
     if (player && player.classList.contains('ad-showing')) {
-      player.mute()
-      player.style.zIndex = '-999'
       skipAd()
     }
   }
-  startObserving()
 
+  // Function to check the player state and play the video if not playing
   function checkPlayerState () {
     const player = document.getElementById('movie_player')
     if (player && player.getPlayerState() !== 1) { // 1 is the state code for playing
-      location.reload() // Reload the page if the player is not playing
+      player.playVideo()
     }
   }
 
-  setInterval(checkPlayerState, 5000) // Check player state every 5 seconds
-
+  // Function to check for URL change and reset adSkipped flag
   function checkUrlChange () {
-    if (location.href.includes('/watch')) {
+    if (location.href.includes('/watch') && !adSkipped) {
       adSkipped = false
       startObserving()
     }
   }
 
+  // Initialize script
+  if (location.href.includes('/watch')) {
+    skipAd()
+  }
+  setInterval(checkPlayerState, 10000) // Check player state every 10 seconds
   setInterval(checkUrlChange, 1000) // Continuously check for URL change
 })()
