@@ -49,6 +49,15 @@
   }
   startObserving()
 
+  function checkPlayerState () {
+    const player = document.getElementById('movie_player')
+    if (player && player.getPlayerState() !== 1) { // 1 is the state code for playing
+      location.reload() // Reload the page if the player is not playing
+    }
+  }
+
+  setInterval(checkPlayerState, 5000) // Check player state every 5 seconds
+
   function checkUrlChange () {
     if (location.href.includes('/watch')) {
       adSkipped = false
