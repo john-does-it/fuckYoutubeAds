@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         FuckAds - A Youtube pub skipper
 // @namespace    http://tampermonkey.net/
-// @version      4.3.1
+// @version      4.4.2
 // @description  Automatically skips YouTube ads and mutes/unmutes video for Firefox (quickly tested) and Opera (extensively tested).
 // @author       John Doe
 // @match        *://www.youtube.com/*
@@ -13,10 +13,15 @@
 
 (function () {
   console.log('FuckAds script initialized')
-  let adSkipped
-  // Function to skip the ad if present
-  function skipAd () {
+  let adSkipped = false
+
+  if (location.href.includes('/watch')) {
+    console.log('URL includes /watch')
     adSkipped = false
+    skipAd()
+  }
+
+  function skipAd () {
     const player = document.getElementById('movie_player')
     const skipButton = document.querySelector('.ytp-ad-skip-button-text')
     if (player && skipButton && !adSkipped) {
@@ -33,23 +38,23 @@
   // Function to observe ad showing and skip it
   function startObserving () {
     const player = document.getElementById('movie_player')
-    if (player && player.classList.contains('ad-showing')) {
-      skipAd()
+    if (!player) {
+      console.log('player not detected')
+      return
     }
-  }
-
-  // Function to check the player state and play the video if not playing
-  function checkPlayerState () {
-    const player = document.getElementById('movie_player')
-    if (player && player.getPlayerState() !== 1) { // 1 is the state code for playing
-      player.playVideo()
+    if (!player.classList.contains('ad-showing')) {
+      console.log('no ad detected')
+      return
+    }
+    if (player && player.classList.contains('ad-showing')) {
+      console.log('player and ad detected')
+      skipAd()
     }
   }
 
   // Function to check for URL change and reset adSkipped flag
   function checkUrlChange () {
     if (location.href.includes('/watch') && !adSkipped) {
-      adSkipped = false
       startObserving()
     }
   }
@@ -57,6 +62,6 @@
   // Initialize script
   skipAd()
 
-  setInterval(checkPlayerState, 3000) // Check player state every 10 seconds
   setInterval(checkUrlChange, 1000) // Continuously check for URL change
+  setInterval(startObserving, 1000) // Continuously check for ad
 })()
