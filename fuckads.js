@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         FuckAds - A Youtube pub skipper
 // @namespace    http://tampermonkey.net/
-// @version      4.5
+// @version      4.5.3
 // @description  Automatically skips YouTube ads and mutes/unmutes video for Firefox (quickly tested) and Opera (extensively tested).
 // @author       John Doe
 // @match        *://www.youtube.com/*
@@ -39,15 +39,14 @@
 
   // Function to observe ad showing and skip it
   function startObserving () {
-    // console.log(player, skipButton)
+    const player = document.getElementById('movie_player')
     if (!player) {
       messageDiv.style.zIndex = '999'
       messageDiv.innerText = 'player not detected'
       return
     }
     if (!player.classList.contains('ad-showing')) {
-      messageDiv.style.zIndex = '-999'
-      messageDiv.innerText = ''
+      messageDiv.innerText = 'no ad detected'
       player.style.zIndex = '999'
       player.unMute()
       adDetected = false
@@ -56,6 +55,8 @@
     if (player && player.classList.contains('ad-showing')) {
       messageDiv.style.zIndex = '999'
       messageDiv.innerText = 'player and ad detected'
+      player.style.zIndex = '-999'
+      player.mute()
       adDetected = true
       skipAd()
     }
