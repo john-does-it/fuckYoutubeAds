@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         FuckAds - A Youtube pub skipper
+// @name         FuckAds - Hide and mute YouTube ads
 // @namespace    http://tampermonkey.net/
-// @version      4.8.4
-// @description  Automatically skips YouTube ads and mutes/unmutes video for Firefox (quickly tested) and Opera (extensively tested).
+// @version      5.2.1
+// @description  Automatically hide and mutes/unmutes YouTube ads for Firefox (quickly tested) and Opera (extensively tested).
 // @author       John Doe
 // @match        *://www.youtube.com/*
 // @grant        none
@@ -14,56 +14,47 @@
 (function () {
   const message = document.createElement('div')
   document.body.appendChild(message)
-  message.style.cssText = 'position: fixed; top: 50%; left: 0; background: red; color: white; padding: 10px; z-index: 999;'
+  message.style.cssText = 'position: fixed; top: 50%; left: 0; background: red; color: white; padding: 10px; z-index: -1;'
+  const skipButton = document.querySelector('.ytp-ad-skip-button-text')
 
   let adSkipped = false
   let previousUrl = location.href
 
-  function skipAd () {
-    const player = document.getElementById('movie_player')
-    const skipButton = document.querySelector('.ytp-ad-skip-button-container')
-
-    if (player && skipButton && adSkipped === false) {
-      skipButton.click()
-      adSkipped = true
-    }
-  }
-
   function startObserving () {
     if (location.href.includes('/watch')) {
+      message.style.zIndex = '999'
       const player = document.getElementById('movie_player')
       const skipButton = document.querySelector('.ytp-ad-skip-button-text')
-
-      console.log('startObserving () player, skipButton', player, skipButton)
 
       if (!player) {
         message.innerText = 'Player not detected.'
       }
 
+      if (player.classList.contains('ad-showing')) {
+        player.style.filter = 'blur(50px)'
+      }
+
       if (player.classList.contains('ad-showing') && !skipButton) {
         player.mute()
-        // player.style.zIndex = '-999'
         message.innerText = 'Player and ad detected. No skip button available, you need to wait.'
         return
       }
 
       if (player.classList.contains('ad-showing') && skipButton) {
         player.mute()
-        // player.style.zIndex = '999'
-        message.innerText = 'Skip button available, ad will be skipped ASAP.'
-        skipAd()
-        console.log('skipAd()')
+        player.style.filter = 'blur(5px)'
+        skipButton.style.zIndex = '999'
+
+        message.innerText = 'Skip button available.'
+        skipButton.click()
         return
       }
 
       if (!player.classList.contains('ad-showing')) {
-        message.innerText = 'No ad detected.'
+        message.style.zIndex = '-999'
         player.unMute()
-        // player.style.zIndex = '999'
-        if (player.getPlayerState() !== 1 && adSkipped === false) {
-          player.seekTo(0)
-          player.playVideo()
-        }
+        player.style.zIndex = '999'
+        player.style.filter = 'blur(0px)'
         adSkipped = true
       }
     }
@@ -71,6 +62,10 @@
 
   function checkUrlChange () {
     const currentUrl = location.href
+
+    if (skipButton) {
+      skipButton.click()
+    }
 
     if (!adSkipped && currentUrl !== previousUrl) {
       adSkipped = false
@@ -81,5 +76,5 @@
   }
 
   setInterval(checkUrlChange, 1000)
-  setInterval(startObserving, 3000)
+  setInterval(startObserving, 1000)
 })()
