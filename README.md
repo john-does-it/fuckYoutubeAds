@@ -1,4 +1,4 @@
-# FuckAds - Automatically hide and mutes/unmutes ad on YouTube video
+# FuckAds - Automatically hide and mute/unmute ads on YouTube video
 
 ## Overview
 "FuckAds" is a user script designed to improve your YouTube experience by automatically muting and hiding ads.
