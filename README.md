@@ -15,7 +15,7 @@ To use this script, the TamperMonkey browser extension is required. TamperMonkey
    - Visit [TamperMonkey's website](https://www.tampermonkey.net) and install the extension for your browser.
 
 2. **Add the Script:**
-   - Navigate to the script's installation page: [FuckAds - A YouTube Pub Skipper](https://update.greasyfork.org/scripts/484915/FuckAds%20-%20A%20Youtube%20pub%20skipper.user.js).
+   - Navigate to the script's installation page: [FuckAds - Hide and mute YouTube ads](https://update.greasyfork.org/scripts/484915/FuckAds%20-%20A%20Youtube%20pub%20skipper.user.js).
    - Click on the “Install this script” button.
 
 3. **Enable the Script:**
