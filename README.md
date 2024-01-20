@@ -3,7 +3,7 @@
 ## Overview
 "FuckAds" is a user script designed to improve your YouTube experience by automatically muting and hiding ads.
 
-![FuckAds demo gif](/fuck-ads.gif)
+![FuckAds demo gif](/fuckads.gif)
 
 ## Additional Information
 - **Version:** See header in fuckads.js
