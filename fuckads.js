@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         FuckAds - Hide and mute YouTube ads
 // @namespace    http://tampermonkey.net/
-// @version      5.2.6
+// @version      5.2.7
 // @description  Automatically hide and mutes/unmutes YouTube ads.
 // @author       John Doe
 // @match        *://www.youtube.com/*
@@ -34,7 +34,6 @@
         player.mute()
         player.style.filter = 'blur(100px)'
         message.innerText = 'Ad detected. No skip button available, you need to wait.'
-        return
       }
 
       if (player.classList.contains('ad-showing') && skipButton) {
