@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         FuckAds - Hide and mute YouTube ads
+// @name         FuckAds - Skip YouTube ads
 // @namespace    http://tampermonkey.net/
 // @version      0.1 - testing
-// @description  Automatically hide and mutes/unmutes YouTube ads.
+// @description  Automatically Skip YouTube ads.
 // @author       John Doe
 // @match        *://www.youtube.com/*
 // @grant        none
