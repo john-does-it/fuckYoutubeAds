@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         FuckAds - Skip YouTube ads
 // @namespace    http://tampermonkey.net/
-// @version      0.1 - testing
-// @description  Automatically Skip YouTube ads.
+// @version      1.2
+// @description  Automatically skip YouTube ads.
 // @author       John Doe
 // @match        *://www.youtube.com/*
 // @grant        none
@@ -21,6 +21,8 @@
 
       skipButton.click()
 
+      /* This is only usefull for debugging */
+      /*
       if (!player) {
         console.log('Player not detected.')
       }
@@ -33,8 +35,8 @@
       if (!player.classList.contains('ad-showing')) {
         console.log('No ad detected')
       }
+      */
     }
   }
-
   setInterval(startObserving, 5000)
 })()
