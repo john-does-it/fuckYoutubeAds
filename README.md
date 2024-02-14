@@ -1,9 +1,7 @@
-# FuckAds - Automatically hide and mute/unmute ads on YouTube video
+# FuckAds - Skip YouTube ads
 
 ## Overview
-"FuckAds" is a user script designed to improve your YouTube experience by automatically muting and hiding ads.
-
-![FuckAds demo gif](/fuckads.gif)
+"FuckAds" is a user script designed to automatically skip YouTube ads.
 
 ## Additional Information
 - **Version:** See header in fuckads.js

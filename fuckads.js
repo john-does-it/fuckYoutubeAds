@@ -19,7 +19,9 @@
 
       console.log(player, skipButton)
 
-      skipButton.click()
+      if (skipButton) {
+        skipButton.click()
+      }
 
       /* This is only usefull for debugging */
       /*
