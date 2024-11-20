@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         FuckAds - Mute and hide YouTube ads
 // @namespace    http://tampermonkey.net/
-// @version      1.3.9
+// @version      1.4.1
 // @description  Automatically mute and hide YouTube ads and hide YouTube Ad Slots.
 // @author       John Doe
 // @match        *://www.youtube.com/*
 // @grant        none
 // @license      MIT
 // ==/UserScript==
-
+ 
 (function () {
   const messageDiv = document.createElement('div')
   
@@ -18,27 +18,30 @@
   }
   
   function hideAdsSlot () {
-    const youTubeAdsSlot = document.querySelectorAll('ytd-display-ad-renderer') // ads on main feed
-    const youTubeAdsSlot2 = document.querySelectorAll('ytd-ad-inline-playback-meta-block') // more ads on main feed
-    const youTubeAdsSlot3 = document.querySelector('#player-ads') // single sponsored container with a cta on /watch/...
-    const youTubeAdsSlot4 = document.getElementsByClassName('ytp-ad-avatar-lockup-card') // single ad slot on bottom left of the player related to the current ad running on when watching a vid on /watch 
-    const youTubeAdsSlot5 = document.getElementsByClassName('ytd-in-feed-ad-layout-renderer') // more ads on main feeds
-    const youTubeAdsSlot6 = document.getElementsByTagName('ytd-ad-slot-renderer') // more ads slot on /watch feeds
-
-    if (youTubeAdsSlot) {
+    /* ads on main feed */
+    const youTubeAdsSlot = document.querySelectorAll('ytd-display-ad-renderer') 
+    const youTubeAdsSlot2 = document.querySelectorAll('ytd-ad-inline-playback-meta-block') 
+    const youTubeAdsSlot5 = document.getElementsByClassName('ytd-in-feed-ad-layout-renderer') 
+    /* single sponsored container with a cta on /watch/ */
+    const youTubeAdsSlot3 = document.querySelector('#player-ads') 
+    /* ads slot on /watch feeds */
+    const youTubeAdsSlot4 = document.getElementsByClassName('ytp-ad-avatar-lockup-card') 
+    const youTubeAdsSlot6 = document.getElementsByTagName('ytd-ad-slot-renderer')
+    /* big banner on top of feed to incentive to buy YouTube Premium (go fuck yourself) */
+    const youTubePremiumAdSlot = document.getElementsByTagName('ytd-banner-promo-renderer')
+ 
+    if (youTubeAdsSlot || youTubeAdsSlot2) {
       for (let i = 0; i < youTubeAdsSlot.length; i++) {
-        youTubeAdsSlot[i].innerText = 'Ads hidden by FuckAds'
+        youTubeAdsSlot[i].innerText = 'Ads hidden by FuckAds. Keep your mind ad-free. 🧠🕊️'
         youTubeAdsSlot[i].style.height = '100%'
         youTubeAdsSlot[i].style.display = 'flex'
         youTubeAdsSlot[i].style.color = 'white'
         youTubeAdsSlot[i].style.justifyContent = 'center';
         youTubeAdsSlot[i].style.alignItems = 'center';
       }
-    }
-    
-    if (youTubeAdsSlot2) {
+
       for (let i = 0; i < youTubeAdsSlot2.length; i++) {
-        youTubeAdsSlot2[i].innerText = 'Ads hidden by FuckAds'
+        youTubeAdsSlot[i].innerText = 'Ads hidden by FuckAds. Keep your mind ad-free. 🧠🕊️'
         youTubeAdsSlot2[i].style.height = '100%'
         youTubeAdsSlot2[i].style.display = 'flex'
         youTubeAdsSlot2[i].style.color = 'white'
@@ -56,19 +59,26 @@
         adSlot.style.display = 'none'      
       }
     }
-
+ 
     if (youTubeAdsSlot5) {
       for (let adSlot of youTubeAdsSlot5) {
         adSlot.style.display = 'none'
       }
     }
-
+ 
     if (youTubeAdsSlot6) {
       for (let adSlot of youTubeAdsSlot6) {
         adSlot.style.display = 'none'
       }
     }
+
+    if (youTubePremiumAdSlot) {
+      for (let adSlot of youTubePremiumAdSlot) {
+        adSlot.style.display = 'none'
+      }
+    }
   }
+
   setInterval(hideAdsSlot, 3000)
   
   function startObserving () {
@@ -76,7 +86,7 @@
       const player = document.getElementById('movie_player')
       const innerPlayer = document.querySelector('.html5-video-container')
       const skipButton = document.querySelector('.ytp-ad-skip-button') || document.querySelector('.ytp-skip-ad-button') || document.querySelector('.ytp-ad-skip-button-modern')
-
+ 
       if (player.classList.contains('ad-showing')) {
         console.log('Ad detected.')
         document.body.appendChild(messageDiv)
@@ -92,8 +102,9 @@
         innerPlayer.style.filter = 'blur(0)'
         messageDiv.style.zIndex = '-999'
       }
-
+ 
       if (skipButton) {
+        console.log('skip button detected', skipButton)
         skipButton.click()
       }
     }
