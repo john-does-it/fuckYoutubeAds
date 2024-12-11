@@ -11,6 +11,7 @@
  
 (function () {
   const messageDiv = document.createElement('div')
+  const hiddenAndBlurredAdMessage = 'Ads hidden by FuckAds. Keep your mind ad-free. 🧠🕊️'
   
   function createMessage () {
     messageDiv.style.cssText = 'position: fixed; bottom: 10px; left: 10px; background: #0f0f0f; color: white; border: 1px solid white; padding: 8px; border-radius: 8px; z-index: 999;'
@@ -32,7 +33,7 @@
  
     if (youTubeAdsSlot || youTubeAdsSlot2) {
       for (let i = 0; i < youTubeAdsSlot.length; i++) {
-        youTubeAdsSlot[i].innerText = 'Ads hidden by FuckAds. Keep your mind ad-free. 🧠🕊️'
+        youTubeAdsSlot[i].innerText = hiddenAndBlurredAdMessage
         youTubeAdsSlot[i].style.height = '100%'
         youTubeAdsSlot[i].style.display = 'flex'
         youTubeAdsSlot[i].style.color = 'white'
@@ -41,7 +42,7 @@
       }
 
       for (let i = 0; i < youTubeAdsSlot2.length; i++) {
-        youTubeAdsSlot[i].innerText = 'Ads hidden by FuckAds. Keep your mind ad-free. 🧠🕊️'
+        youTubeAdsSlot[i].innerText = hiddenAndBlurredAdMessage
         youTubeAdsSlot2[i].style.height = '100%'
         youTubeAdsSlot2[i].style.display = 'flex'
         youTubeAdsSlot2[i].style.color = 'white'
