@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         FuckYoutubeAds - Mute and hide YouTube ads
+// @name         FuckYoutubeAds - Automatically mutes and hides video ads during playback—by blurring and silencing them and removes the distracting ad slots and banners from your feed
 // @namespace    http://tampermonkey.net/
-// @version      1.4.5
-// @description  Automatically mute and hide YouTube ads and hide YouTube Ad Slots.
+// @version      1.4.6
+// @description  Automatically mute and blur video YouTube ads and hide YouTube static ads from feed.
 // @author       John Doe
 // @match        *://www.youtube.com/*
 // @grant        none
