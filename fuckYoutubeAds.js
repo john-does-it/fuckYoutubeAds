@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         FuckYoutubeAds - Automatically mutes and hides video ads during playback—by blurring and silencing them and removes the distracting ad slots and banners from your feed
+// @name         FuckYoutubeAds
 // @namespace    http://tampermonkey.net/
 // @version      1.4.6
-// @description  Automatically mute and blur video YouTube ads and hide YouTube static ads from feed.
+// @description  Automatically mute and blur video YouTube ads and hide YouTube static ads from feed
 // @author       John Doe
 // @match        *://www.youtube.com/*
 // @grant        none
@@ -14,7 +14,7 @@
   
   function createMessage () {
     messageDiv.style.cssText = 'position: fixed; bottom: 10px; left: 10px; background: #0f0f0f; color: white; border: 1px solid white; padding: 8px; border-radius: 8px; z-index: 999;'
-    messageDiv.textContent = 'Ad muted and blurred by FuckAds. Keep your mind ad-free. 🧠🕊️'
+    messageDiv.textContent = 'Ad muted and blurred by FuckYoutubeAds. Keep your mind ad-free. 🧠🕊️'
   }
   
   function hideAdsSlot () {
