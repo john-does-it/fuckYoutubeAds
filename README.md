@@ -1,11 +1,11 @@
-# FuckYoutubeAds - Skip YouTube ads
+# FuckYoutubeAds -Aautomatically mutes and hides video ads during playback—by blurring and silencing them and removes the distracting ad slots and banners from your feed
 
 ## Overview
-FuckYouTubeAds is a little script, that automatically mutes and hides video ads during playback—by blurring and silencing them—but it also removes the distracting ad slots and banners from your feed. 
+FuckYouTubeAds is a little script, that automatically mutes and hides video ads during playback—by blurring and silencing them and removes the distracting ad slots and banners from your feed. 
 This means you'll enjoy a cleaner, uninterrupted browsing and viewing experience, free from the clutter and interruptions that ads often bring.
 
 ## Additional Information
-- **Version:** See header in fuckads.js
+- **Version:** See header in fuckYoutubeAds.js
 - **Testing:** The script has undergone basic testing and works effectively in most scenarios.
 - **Compatibility:** The script is subject to YouTube's updates, which may affect its functionality. Regular updates and maintenance are necessary for ongoing effectiveness.
 
