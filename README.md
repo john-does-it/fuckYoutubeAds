@@ -1,4 +1,4 @@
-# FuckYoutubeAds - Automatically mute and blur video YouTube ads and remove YouTube static ads from feed
+# FuckYoutubeAds - Automatically mute and blur video YouTube ads and remove YouTube static ads from YouTube feeds
 
 ## Overview
 FuckYouTubeAds is a tiny code script that automatically mute and blur video YouTube ads and remove YouTube static ads from feed. 
