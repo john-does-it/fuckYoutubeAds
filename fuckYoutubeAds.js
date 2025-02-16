@@ -67,7 +67,6 @@
       const innerPlayer = document.querySelector('.html5-video-container')
       
       if (player.classList.contains('ad-showing')) {
-        console.log('Ad detected.')
         document.body.appendChild(messageDiv)
         innerPlayer.style.filter = 'blur(45px)'
         player.mute()
@@ -75,11 +74,10 @@
       }
       
       if (!player.classList.contains('ad-showing')) {
-        console.log('No ad detected')
         player.style.opacity = 1
-        player.unMute()
         innerPlayer.style.filter = 'blur(0)'
         messageDiv.style.zIndex = '-999'
+        player.unMute()
       }
     }
   }
