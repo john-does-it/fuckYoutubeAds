@@ -16,7 +16,7 @@ To use this script, the Tampermonkey browser extension is required. Tampermonkey
    - Visit [Tampermonkey's website](https://www.Tampermonkey.net) and install the extension for your browser.
   
 2. **Enable developper mode for Tampermonkey**
-   - Check the [Tampermonkey's website FAQ about how enabling developper mode](https://www.tampermonkey.net](https://www.tampermonkey.net/faq.php?locale=en#:~:text=To%20enable%20Developer%20Mode%20in,navigate%20to%20the%20extensions%20page.&text=Find%20and%20click%20the%20"Developer,top%20right%20to%20enable%20it.)](https://www.tampermonkey.net/faq.php?locale=en#Q209).
+   - Check the [Tampermonkey's website FAQ about how enabling developper mode](https://www.tampermonkey.net/faq.php?locale=en#Q209).
    
 3. **Add the Script:**
    - Navigate to the script's installation page: [FuckYoutubeAds - Mute and hide YouTube ads](https://greasyfork.org/en/scripts/484915-youtubeads-mute-and-hide-youtube-ads).
