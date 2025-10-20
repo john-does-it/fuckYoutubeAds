@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         FuckYoutubeAds
 // @namespace    http://tampermonkey.net/
-// @version      1.4.9
+// @version      2.0.0
 // @description  Automatically mute and blur video YouTube ads and hide YouTube static ads from feed
-// @author       John Doe
+// @author       John Doe & Chaban MB
 // @match        *://www.youtube.com/*
 // @grant        none
 // @license      MIT
